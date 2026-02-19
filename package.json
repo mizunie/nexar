@@ -1,5 +1,5 @@
 {
-  "name": "@nexar-com.co/nexar-sdk",
+  "name": "nexar-sdk",
   "version": "1.0.0",
   "description": "Official Nexar SDK for WhatsApp messaging and Nexar services.",
   "keywords": [
@@ -30,9 +30,7 @@
   ],
   "sideEffects": false,
   "scripts": {
-    "build": "tsc",
-    "clean": "rm -rf dist",
-    "prepublishOnly": "npm run clean && npm run build"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
     "typescript": "^5.4.0"
