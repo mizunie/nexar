@@ -31,7 +31,7 @@
   "sideEffects": false,
   "scripts": {
     "build": "tsc",
-    "release:patch": "npm version patch && git push origin HEAD && git push origin v%s",
+    "release:patch": "npm version patch && git push && git push origin HEAD --tags",
     "release:minor": "npm version minor && git push origin HEAD && git push origin v%s",
     "release:major": "npm version major && git push origin HEAD && git push origin v%s",
     "prepublishOnly": "npm run build"
