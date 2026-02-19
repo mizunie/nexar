@@ -31,9 +31,9 @@
   "sideEffects": false,
   "scripts": {
     "build": "tsc",
-    "release:patch": "git tag -d $(git tag) && npm version patch && git push && git push --tags",
-    "release:minor": "git tag -d $(git tag) && npm version minor && git push && git push --tags",
-    "release:major": "git tag -d $(git tag) && npm version major && git push && git push --tags",
+    "release:patch": "npm version patch && git push origin HEAD && git push origin v%s",
+    "release:minor": "npm version minor && git push origin HEAD && git push origin v%s",
+    "release:major": "npm version major && git push origin HEAD && git push origin v%s",
     "prepublishOnly": "npm run build"
   },
   "devDependencies": {
