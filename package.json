@@ -1,6 +1,6 @@
 {
   "name": "nexar-sdk",
-  "version": "1.1.5",
+  "version": "1.1.0",
   "description": "Official Nexar SDK for WhatsApp messaging and Nexar services.",
   "keywords": [
     "nexar",
@@ -12,7 +12,7 @@
   "homepage": "https://nexar.com.co",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nexar/nexar-sdk.git"
+    "url": "https://github.com/nexar/nexar-sdk.git"
   },
   "license": "MIT",
   "author": "Nexar",
@@ -31,10 +31,9 @@
   "sideEffects": false,
   "scripts": {
     "build": "tsc",
-    "release:patch": "npm version patch && git push origin HEAD && git push origin $(git describe --tags --abbrev=0)",
-    "release:minor": "npm version minor",
-    "release:major": "npm version major",
-    "publish:tag": "git push origin HEAD --tags",
+    "release:patch": "git tag -d $(git tag) && npm version patch && git push && git push --tags",
+    "release:minor": "git tag -d $(git tag) && npm version minor && git push && git push --tags",
+    "release:major": "git tag -d $(git tag) && npm version major && git push && git push --tags",
     "prepublishOnly": "npm run build"
   },
   "devDependencies": {
