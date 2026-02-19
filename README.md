@@ -179,8 +179,6 @@ await nexar.iawaba.uploadFile({
 });
 ```
 
-````
-
 ---
 
 ### Delete File (Soft Delete)
@@ -192,8 +190,6 @@ await nexar.iawaba.deleteFile(
   "auto",
   "manual-producto.md"
 );
-````
-
 ````
 
 ---
@@ -209,7 +205,7 @@ Date.now() + 30 * 24 * 60 * 60 * 1000
 
 // No expiration
 ven: null
-````
+```
 
 ---
 
@@ -219,8 +215,6 @@ ven: null
 * Files past expiration are removed from storage
 * Vector database is re-indexed automatically
 * Deleted files become inaccessible immediately
-
----
 
 ---
 
