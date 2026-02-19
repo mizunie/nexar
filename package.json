@@ -31,9 +31,9 @@
   "sideEffects": false,
   "scripts": {
     "build": "tsc",
-    "release:patch": "npm version patch && git push && git push --tags",
-    "release:minor": "npm version minor && git push && git push --tags",
-    "release:major": "npm version major && git push && git push --tags",
+    "release:patch": "npm version patch",
+    "release:minor": "npm version minor",
+    "release:major": "npm version major",
     "prepublishOnly": "npm run build"
   },
   "devDependencies": {
