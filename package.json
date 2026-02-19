@@ -1,6 +1,6 @@
 {
   "name": "nexar-sdk",
-  "version": "1.1.2",
+  "version": "1.1.3",
   "description": "Official Nexar SDK for WhatsApp messaging and Nexar services.",
   "keywords": [
     "nexar",
