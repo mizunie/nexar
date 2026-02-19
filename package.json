@@ -31,9 +31,10 @@
   "sideEffects": false,
   "scripts": {
     "build": "tsc",
-    "release:patch": "npm version patch",
+    "release:patch": "npm version patch && git push origin HEAD && git push origin $(git describe --tags --abbrev=0)",
     "release:minor": "npm version minor",
     "release:major": "npm version major",
+    "publish:tag": "git push origin HEAD --tags",
     "prepublishOnly": "npm run build"
   },
   "devDependencies": {
