@@ -1,4 +1,5 @@
 import { HttpClient } from "./core/httpClient";
+import { IawabaClient } from "./modules/iawaba/client";
 import { WhatsAppClient } from "./modules/whatsapp/client";
 
 const DEFAULT_BASE_URL = "https://back.nexar.com.co";
@@ -15,10 +16,8 @@ export class Nexar {
     });
 
     return {
-      whatsapp: new WhatsAppClient({
-        http,
-        businessId: options.businessId,
-      }),
+      whatsapp: new WhatsAppClient(http, options.businessId),
+      iawaba: new IawabaClient(http, options.businessId)
     };
   }
 }

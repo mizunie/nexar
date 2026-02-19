@@ -12,13 +12,10 @@ export interface WhatsAppClientOptions {
 }
 
 export class WhatsAppClient {
-  private http: HttpClient;
-  private businessId: string | number;
-
-  constructor(options: WhatsAppClientOptions) {
-    this.http = options.http;
-    this.businessId = options.businessId;
-  }
+  constructor(
+    private http: HttpClient,
+    private businessId: string | number
+  ) { }
 
   private endpoint(path: string) {
     return `/twaba${path}/${this.businessId}`;

@@ -52,7 +52,7 @@ const nexar = Nexar.init({
 | Option     | Type            | Required | Description              |
 | ---------- | --------------- | -------- | ------------------------ |
 | token      | string          | Yes      | API authentication token |
-| businessId | string | number | Yes      | Your Nexar business ID   |
+| businessId | string          | Yes      | Your Nexar business ID   |
 | baseUrl    | string          | No       | Custom API URL           |
 
 Default API URL:
@@ -143,6 +143,99 @@ interface ApiResponse<T = unknown> {
 * Deno
 * Edge runtimes
 * Browsers (if CORS enabled)
+
+---
+
+## IA WABA File API
+
+The IA WABA module allows you to upload, update, expire, or delete indexed documents.
+
+Endpoint:
+
+```
+POST /iawaba/api-receptor/{businessId}
+```
+
+---
+
+### Upload or Update File
+
+If the file exists, it is fully replaced.
+If it does not exist, it is created.
+
+The SDK automatically generates the checksum internally. You only provide the content.
+
+```ts
+await nexar.iawaba.uploadFile({
+  folder: "auto", // "general" | "auto" | "prompt"
+  name: "manual-producto.md",
+  content: `# Product Manual
+
+## Features
+- High quality
+- 2 year warranty`,
+  vencido: 0,
+  ven: Date.now() + 30 * 24 * 60 * 60 * 1000 // 30 days
+});
+```
+
+````
+
+---
+
+### Delete File (Soft Delete)
+
+Marks the file as expired. It becomes inaccessible immediately.
+
+```ts
+await nexar.iawaba.deleteFile(
+  "auto",
+  "manual-producto.md"
+);
+````
+
+````
+
+---
+
+### Expiration Examples
+
+```ts
+// 7 days
+Date.now() + 7 * 24 * 60 * 60 * 1000
+
+// 1 month (approx)
+Date.now() + 30 * 24 * 60 * 60 * 1000
+
+// No expiration
+ven: null
+````
+
+---
+
+### Automatic Cleanup System
+
+* Daily cron job runs automatically
+* Files past expiration are removed from storage
+* Vector database is re-indexed automatically
+* Deleted files become inaccessible immediately
+
+---
+
+---
+
+## Documentation
+
+For complete API reference, advanced configuration, and platform-specific details, visit:
+
+👉 https://nexar.com.co/api/docs/waba
+
+This SDK covers the most common operations. The full REST API documentation includes:
+- Raw endpoint specifications
+- Authentication details
+- Advanced configuration
+- Webhook information
+- Error reference
 
 ---
 
