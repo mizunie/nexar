@@ -8,6 +8,12 @@ export interface WhatsAppMessage {
   body: string;
 }
 
+export interface WhatsAppImageMessage {
+  celular: string;
+  body: string;
+  url: string;
+}
+
 export interface WhatsAppButton {
   id: string;
   title: string;

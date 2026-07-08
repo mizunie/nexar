@@ -4,6 +4,7 @@ import {
   WhatsAppMessage,
   WhatsAppInteractive,
   WhatsAppTemplate,
+  WhatsAppImageMessage,
 } from "./types";
 
 export interface WhatsAppClientOptions {
@@ -26,6 +27,15 @@ export class WhatsAppClient {
   ): Promise<ApiResponse> {
     return this.http.post(
       this.endpoint("/sendText"),
+      message
+    );
+  }
+
+  async sendImage(
+    message: WhatsAppImageMessage
+  ): Promise<ApiResponse> {
+    return this.http.post(
+      this.endpoint("/sendImage"),
       message
     );
   }

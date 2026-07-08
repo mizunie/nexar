@@ -15,7 +15,7 @@
     "url": "git+https://github.com/mizunie/nexar.git"
   },
   "license": "MIT",
-  "author": "Nexar",
+  "author": "Jhoan",
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
